@@ -5,12 +5,10 @@ workflows:
       flutter: stable
       vars:
         APP_NAME: "ALBUHAIRA ALARABIA"
-        BUNDLE_ID: "com.yourcompany.customer"
     scripts:
-      - name: Set iOS app name and bundle
+      - name: Set iOS app name
         script: |
           /usr/libexec/PlistBuddy -c "Set :CFBundleName $APP_NAME" ios/Runner/Info.plist
-          /usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier $BUNDLE_ID" ios/Runner.xcodeproj/project.pbxproj
       - name: Get dependencies
         script: flutter pub get
       - name: Build iOS
